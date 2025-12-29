@@ -1,0 +1,210 @@
+/* Sass Variables (Task 8) */
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$accent-color: #8e44ad;
+$light-color: #f8f9fa;
+$dark-color: #1a1a2e;
+$success-color: #2ecc71;
+$warning-color: #f39c12;
+$danger-color: #e74c3c;
+
+$font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$border-radius: 10px;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$transition-speed: 0.3s;
+
+/* Mixins */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin card-styles {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: transform $transition-speed ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == tablet {
+        @media (max-width: 768px) { @content; }
+    }
+    @if $breakpoint == mobile {
+        @media (max-width: 576px) { @content; }
+    }
+}
+
+/* Base Styles */
+body {
+    font-family: $font-stack;
+    color: $secondary-color;
+    background-color: $light-color;
+    transition: background-color $transition-speed;
+}
+
+/* Hero Section with nested styles */
+.hero {
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+    margin-bottom: 3rem;
+    
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        
+        @include responsive(tablet) {
+            font-size: 2.2rem;
+        }
+        
+        @include responsive(mobile) {
+            font-size: 1.8rem;
+        }
+    }
+    
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        
+        @include responsive(tablet) {
+            font-size: 1.5rem;
+        }
+        
+        @include responsive(mobile) {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/* Button Styles */
+.btn {
+    border-radius: $border-radius;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all $transition-speed ease;
+    
+    &-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            border-color: darken($primary-color, 10%);
+        }
+    }
+    
+    &-info {
+        background-color: lighten($primary-color, 20%);
+        border-color: lighten($primary-color, 20%);
+        color: $secondary-color;
+        
+        &:hover {
+            background-color: lighten($primary-color, 15%);
+            border-color: lighten($primary-color, 15%);
+        }
+    }
+}
+
+/* Card Styles using mixin */
+.card {
+    @include card-styles;
+    border: none;
+    height: 100%;
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Form Styles */
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    
+    .form-control {
+        border-radius: $border-radius;
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
+        }
+        
+        &.is-invalid {
+            border-color: $danger-color;
+            
+            &:focus {
+                box-shadow: 0 0 0 0.25rem rgba($danger-color, 0.25);
+            }
+        }
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: $secondary-color;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    
+    .social-links {
+        a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color $transition-speed ease;
+            
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: $dark-color;
+    color: lighten($light-color, 20%);
+    
+    .about-section,
+    .projects-section,
+    .api-section,
+    .form-section {
+        background-color: darken($dark-color, 5%);
+        color: lighten($light-color, 20%);
+    }
+    
+    .card {
+        background-color: darken($dark-color, 10%);
+        color: lighten($light-color, 20%);
+    }
+    
+    #contactForm {
+        background-color: darken($dark-color, 10%);
+        color: lighten($light-color, 20%);
+        
+        .form-control {
+            background-color: darken($dark-color, 15%);
+            border-color: darken($dark-color, 5%);
+            color: lighten($light-color, 20%);
+            
+            &:focus {
+                background-color: darken($dark-color, 15%);
+                color: lighten($light-color, 20%);
+            }
+        }
+    }
+}

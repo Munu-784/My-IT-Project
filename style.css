@@ -1,0 +1,160 @@
+/* Sass Variables (Task 8) */
+/* Mixins */
+/* Base Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s;
+}
+
+/* Hero Section with nested styles */
+.hero {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+  margin-bottom: 3rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+.btn-primary:hover {
+  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  border-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+}
+.btn-info {
+  background-color: rgb(138.6359832636, 195.9581589958, 234.3640167364);
+  border-color: rgb(138.6359832636, 195.9581589958, 234.3640167364);
+  color: #2c3e50;
+}
+.btn-info:hover {
+  background-color: rgb(116.9769874477, 184.9686192469, 230.5230125523);
+  border-color: rgb(116.9769874477, 184.9686192469, 230.5230125523);
+}
+
+/* Card Styles using mixin */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: none;
+  height: 100%;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card .card-body {
+  padding: 1.5rem;
+}
+
+/* Form Styles */
+#contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#contactForm .form-control {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+#contactForm .form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+#contactForm .form-control.is-invalid {
+  border-color: #e74c3c;
+}
+#contactForm .form-control.is-invalid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+.footer .social-links a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.footer .social-links a:hover {
+  color: #3498db;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1a1a2e;
+  color: white;
+}
+body.dark-mode .about-section,
+body.dark-mode .projects-section,
+body.dark-mode .api-section,
+body.dark-mode .form-section {
+  background-color: rgb(16.7916666667, 16.7916666667, 29.7083333333);
+  color: white;
+}
+body.dark-mode .card {
+  background-color: rgb(7.5833333333, 7.5833333333, 13.4166666667);
+  color: white;
+}
+body.dark-mode #contactForm {
+  background-color: rgb(7.5833333333, 7.5833333333, 13.4166666667);
+  color: white;
+}
+body.dark-mode #contactForm .form-control {
+  background-color: black;
+  border-color: rgb(16.7916666667, 16.7916666667, 29.7083333333);
+  color: white;
+}
+body.dark-mode #contactForm .form-control:focus {
+  background-color: black;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
